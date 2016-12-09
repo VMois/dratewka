@@ -1,0 +1,6 @@
+var Game = {
+    init: function()
+    {
+
+    }
+};

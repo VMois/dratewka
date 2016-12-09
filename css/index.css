@@ -1,8 +1,50 @@
 
-* {
+*
+{
+    -webkit-box-sizing: border box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border box;
-    box-sizing: border-box;
+
+    color: grey;
+    border: none;
+    outline: none;
+}
+
+body
+{
+    background-color: black;
+}
+
+#location-img
+{
+    width: 512px;
+
+    border: .2em solid grey;
+}
+
+#main-input
+{
+    font-size: 1.8em;
+
+    float: right;
+
+    width: 68%;
+    height: 1.1em;
+
+    background-color: black;
+}
+
+#main
+{
+    width: 512px;
+    margin-left: 1em;
+}
+
+#input-div-text
+{
+    float: left;
+    font-size: 1.8em;
+    width: 32%;
 }
