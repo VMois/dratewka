@@ -1,6 +1,8 @@
 
 *
 {
+    font-size: 1.05em;
+
     -webkit-box-sizing: border box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -12,39 +14,49 @@
     outline: none;
 }
 
+@font-face
+{
+    font-family: PressStart2P;
+
+    src: url(../fonts/PressStart2P.ttf);
+}
+
 body
 {
+    font-family: PressStart2P;
+
     background-color: black;
 }
 
 #location-img
 {
     width: 512px;
+    margin-top: .5em;
+    margin-bottom: .5em;
 
     border: .2em solid grey;
 }
 
 #main-input
 {
-    font-size: 1.8em;
+    font-family: PressStart2P;
 
     float: right;
 
-    width: 68%;
-    height: 1.1em;
+    width: 74%;
 
     background-color: black;
 }
 
 #main
 {
-    width: 512px;
+    width: 768px;
     margin-left: 1em;
 }
 
 #input-div-text
 {
     float: left;
-    font-size: 1.8em;
-    width: 32%;
+
+    width: 26%;
 }
