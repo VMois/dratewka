@@ -22,6 +22,11 @@ var Locations = {
                                    "rgb(255,190,99)", [true, false, true, true]);
         location_46 = new Location("46.gif", "You are on a town street",
                                    "rgb(255,190,99)", [true, true, false, true]);
+        location_37 = new Location("37.gif", "You are in a cooper's house",
+                                   "rgb(255,188,102)", [false, false, true, false]);
+        location_57 = new Location("57.gif", "You are in a shoemaker's house",
+                                   "rgb(254,194,97)", [true, false, false, false]);
+
 
 
     }

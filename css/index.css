@@ -57,6 +57,16 @@ body
 #input-div-text
 {
     float: left;
-
     width: 26%;
+}
+
+#message-div
+{
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    font-family: PressStart2P;
+    position: relative;
+    background-color: black;
 }
