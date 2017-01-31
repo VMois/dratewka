@@ -18,7 +18,8 @@ var CreateElements = {
 
         html = html + "<div id='input-div'>" +
                       "<h1 id='input-div-text'>What now?</h1>" +
-                      "<input id='main-input' type='text' autofocus></div>";
+                      "<input id='main-input' type='text' autofocus>" +
+                      "<div id='message-div'></div></div>";
 
         html = html + "</div>"; //main end
         body.innerHTML = html;

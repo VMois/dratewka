@@ -7,6 +7,10 @@ var Game = {
         var locationThings = document.getElementById("location-things");
         var playerInventoryField = document.getElementById("player-inventory-field");
 
+        var messageDiv = document.getElementById('message-div');
+        var inputDivText = document.getElementById('input-div-text');
+        var mainInput = document.getElementById('main-input');
+
         var currentLocation = location_47;
         var currentX = 4;
         var currentY = 7;
@@ -31,6 +35,26 @@ var Game = {
             TAKE: function() {console.log("take")},
             T: function() {console.log("take")},
         };
+
+        function showMessage(message)
+        {
+            messageDiv.innerHTML = message;
+            messageDiv.style.display = 'block';
+
+            // need to refactor in future
+            mainInput.style.display = 'none';
+            inputDivText.style.display = 'none';
+
+            setTimeout(function()
+            {
+                messageDiv.style.display = 'none';
+
+                // need to refactor in future
+                mainInput.style.display = 'block';
+                inputDivText.style.display = 'block';
+
+            }, 1000);
+        }
 
         // update location and player inventory
         // START
@@ -99,6 +123,7 @@ var Game = {
         // move to another location
         function move(direction)
         {
+            var is_can = false;
             switch(direction){
                 // go north
                 case 1:
@@ -107,7 +132,9 @@ var Game = {
                         currentX--;
                         if(window["location_" + currentX + currentY] != undefined)
                         {
+                            is_can = true;
                             currentLocation = window["location_" + currentX + "" + currentY];
+                            showMessage('You are going north...');
                         }
                     }
                     break;
@@ -118,7 +145,9 @@ var Game = {
                         currentY++;
                         if(window["location_" + currentX + currentY] != undefined)
                         {
+                            is_can = true;
                             currentLocation = window["location_" + currentX + "" + currentY];
+                            showMessage('You are going east...');
                         }
                     }
                     break;
@@ -129,7 +158,9 @@ var Game = {
                         currentX++;
                         if(window["location_" + currentX + currentY] != undefined)
                         {
+                            is_can = true;
                             currentLocation = window["location_" + currentX + "" + currentY];
+                            showMessage('You are going south...');
                         }
                     }
                     break;
@@ -140,11 +171,19 @@ var Game = {
                         currentY--;
                         if(window["location_" + currentX + currentY] != undefined)
                         {
+                            is_can = true;
                             currentLocation = window["location_" + currentX + "" + currentY];
+                            showMessage('You are going west...');
                         }
                     }
                     break;
             }
+
+            if(!is_can)
+            {
+                showMessage("You can't go that way!");
+            }
+
             console.debug(currentLocation);
             // at the end, change location
             update_location();
