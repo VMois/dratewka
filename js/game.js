@@ -199,6 +199,7 @@ var Game = {
             else
             {
                 commands[command]();
+                mainInput.value = '';
             }
         }
 

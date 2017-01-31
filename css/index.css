@@ -54,6 +54,11 @@ body
     margin-left: 1em;
 }
 
+#input-div
+{
+    margin-top: 1em;
+}
+
 #input-div-text
 {
     float: left;
