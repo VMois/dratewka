@@ -36,7 +36,7 @@ var Game = {
             T: function() {console.log("take")},
         };
 
-        function showMessage(message)
+        function showMessage(message, time=1000)
         {
             messageDiv.innerHTML = message;
             messageDiv.style.display = 'block';
@@ -53,7 +53,7 @@ var Game = {
                 mainInput.style.display = 'block';
                 inputDivText.style.display = 'block';
 
-            }, 1000);
+            }, time);
         }
 
         // update location and player inventory
@@ -193,7 +193,8 @@ var Game = {
         {
             if(commands[command] == undefined)
             {
-                console.log('Notification: Command not exist');
+                console.debug("Command doesn't exist!");
+                showMessage('Try another word or V for vocabulary', 2000);
             }
             else
             {
