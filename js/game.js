@@ -243,7 +243,12 @@ var Game = {
             }
         }
 
+        // need for access processor function from UI.js
         command_processor = processor;
+        // END
+
+        // help
+        // START
         function vocabulary_help()
         {
             showMessage('NORTH or N, SOUTH or S <br>' +
@@ -255,6 +260,19 @@ var Game = {
                         'Press any key',
                         'help');
         }
+
+        function gossips()
+        {
+            showMessage('The woodcutter lost his home key... <br>' +
+                        'The butcher likes fruit... <br>' +
+                        'The cooper is greedy... <br>' +
+                        'Dratewka plans to make a poisoned bait for the dragon... <br>' +
+                        'The tavern owner is buying food from the pickers... <br>' +
+                        'Making a rag from a bag... <br>' +
+                        'Press any key',
+                        'help');
+        }
+        // END
 
         // start game
         update_location();
