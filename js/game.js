@@ -8,8 +8,10 @@ var Game = {
         var playerInventoryField = document.getElementById("player-inventory-field");
 
         var messageDiv = document.getElementById('message-div');
+        var helpDiv = document.getElementById('help-div');
         var inputDivText = document.getElementById('input-div-text');
         var mainInput = document.getElementById('main-input');
+        is_halt = false;
 
         var currentLocation = location_47;
         var currentX = 4;
@@ -34,26 +36,63 @@ var Game = {
 
             TAKE: function() {console.log("take")},
             T: function() {console.log("take")},
+
+            VOCABULARY: function() { vocabulary_help() },
+            V: function() { vocabulary_help() },
+
+            GOSSIPS: function() { gossips() },
+            G: function() { gossips() },
         };
 
-        function showMessage(message, time=1000)
+        function showMessage(message, type='message', time=1000)
         {
-            messageDiv.innerHTML = message;
-            messageDiv.style.display = 'block';
-
-            // need to refactor in future
             mainInput.style.display = 'none';
             inputDivText.style.display = 'none';
-
-            setTimeout(function()
+            if( type == 'message' )
             {
-                messageDiv.style.display = 'none';
+                messageDiv.innerHTML = message;
+                messageDiv.style.display = 'block';
 
-                // need to refactor in future
-                mainInput.style.display = 'block';
-                inputDivText.style.display = 'block';
+                is_halt = true;
 
-            }, time);
+                setTimeout(function()
+                {
+                    messageDiv.style.display = 'none';
+                    messageDiv.innerHTML = '';
+                    mainInput.style.display = 'block';
+                    inputDivText.style.display = 'block';
+
+                    is_halt = false;
+
+                }, time);
+            }
+            else if( type == 'help' )
+            {
+                helpDiv.innerHTML = message;
+                helpDiv.style.display = 'block';
+
+                locationMoves.style.display = 'none';
+                locationThings.style.display = 'none';
+                playerInventoryField.style.display = 'none';
+                is_halt = true;
+                document.onkeydown=function(e)
+                {
+                    if( is_halt )
+                    {
+                        helpDiv.className = 'hide';
+                        helpDiv.innerHTML = '';
+                        mainInput.style.display = 'block';
+                        inputDivText.style.display = 'block';
+                        locationMoves.style.display = 'block';
+                        locationThings.style.display = 'block';
+                        playerInventoryField.style.display = 'block';
+                        is_halt = false;
+
+                        // use to free keydown event and prevent bug
+                        document.onkeydown = null;
+                    }
+                }
+            }
         }
 
         // update location and player inventory
@@ -189,12 +228,13 @@ var Game = {
             update_location();
         }
 
+        // START
         function processor(command)
         {
             if(commands[command] == undefined)
             {
                 console.debug("Command doesn't exist!");
-                showMessage('Try another word or V for vocabulary', 2000);
+                showMessage('Try another word or V for vocabulary', 'message', 2000);
             }
             else
             {
@@ -204,6 +244,17 @@ var Game = {
         }
 
         command_processor = processor;
+        function vocabulary_help()
+        {
+            showMessage('NORTH or N, SOUTH or S <br>' +
+                        'WEST or W, EAST or E <br>' +
+                        'TAKE (object) or T (object) <br>' +
+                        'DROP (object) or D (object) <br>' +
+                        'USE (object) or U (object) <br>' +
+                        'GOSSIPS or G, VOCABULARY or V <br>' +
+                        'Press any key',
+                        'help');
+        }
 
         // start game
         update_location();

@@ -16,16 +16,19 @@ var UI = {
         })
 
         document.addEventListener('keydown', (event) => {
-            const keyName = event.key;
-            if(keyName == "Enter")
+            if( !is_halt )
             {
-                // get first word for command
-                var command = mainInput.value.split(" ")[0];
+                const keyName = event.key;
+                if(keyName == "Enter")
+                {
+                    // get first word for command
+                    var command = mainInput.value.split(" ")[0];
 
-                // execute command
-                command_processor(command);
+                    // execute command
+                    command_processor(command);
+                }
             }
-        }, false)
+        }, false);
     }
 
 };
