@@ -34,8 +34,8 @@ var Game = {
             SOUTH: function() { move(3); },
             S: function() { move(3); },
 
-            TAKE: function() {console.log("take")},
-            T: function() {console.log("take")},
+            TAKE: function() { take() },
+            T: function() { take() },
 
             VOCABULARY: function() { vocabulary_help() },
             V: function() { vocabulary_help() },
@@ -97,6 +97,46 @@ var Game = {
 
         // update location and player inventory
         // START
+        function update_player_inventory()
+        {
+            var item = playerInventory[0];
+            if(item != undefined)
+            {
+                playerInventoryField.innerHTML = "You are carrying " + item.variant_name;
+            }
+            else
+            {
+                playerInventoryField.innerHTML = "You are carrying nothing."
+            }
+        }
+
+        function update_location_items()
+        {
+            // possible items to take
+            text = "";
+
+            for(i=0; i < currentLocation.items.length; i++)
+            {
+                if(i == currentLocation.items.length - 1)
+                {
+                    text += currentLocation.items[i].variant_name + ".";
+                }
+                else
+                {
+                    text += currentLocation.items[i].variant_name + ", ";
+                }
+            }
+
+            if(text != "")
+            {
+                locationItems.innerHTML = "You see " + text;
+            }
+            else
+            {
+                locationItems.innerHTML = "You see nothing."
+            }
+        }
+
         function update_location()
         {
             // basic change
@@ -132,30 +172,8 @@ var Game = {
                 locationMoves.innerHTML = "Sorry! You cannot escape!:)"
             }
 
-            // possible items to take
-            text = "";
-
-            for(i=0; i < currentLocation.items.length; i++)
-            {
-                if(i == currentLocation.items.length - 1)
-                {
-                    text += currentLocation.items[i].variant_name + ".";
-                }
-                else
-                {
-                    text += currentLocation.items[i].variant_name + ", ";
-                }
-            }
-
-            if(text != "")
-            {
-                locationItems.innerHTML = "You see " + text;
-            }
-            else
-            {
-                locationItems.innerHTML = "You see nothing."
-            }
-
+            update_location_items();
+            update_player_inventory();
         }
         // END
 
@@ -271,6 +289,59 @@ var Game = {
                         'Making a rag from a bag... <br>' +
                         'Press any key',
                         'help');
+        }
+        // END
+
+        // take command function
+        // START
+        function take()
+        {
+            var item_name = mainInput.value.split(' ')[1];
+
+            // check if player carrying something
+            if(playerInventory.length > 0)
+            {
+                showMessage("You are carrying something");
+                return false;
+            }
+
+            // check if location has items
+            if(currentLocation.items.length == 0)
+            {
+                showMessage("There isn't anything like that here");
+                return false;
+            }
+
+            // check if item exist on location
+            for(i=0; i < currentLocation.items.length; i++)
+            {
+                // check if item exist
+                if(currentLocation.items[i].name === item_name)
+                {
+                    // if item exist check flag
+                    if(currentLocation.items[i].flag == 0)
+                    {
+                        showMessage("You can't carry it");
+                        return false;
+                    }
+
+                    // if everything all right
+                    // add item to player inventory
+                    playerInventory[0] = currentLocation.items[i];
+                    // delete item from location
+                    currentLocation.items.splice(i, 1);
+                    // show message about taking item
+                    showMessage("You are taking " + item_name);
+
+                    // location items and player inventory
+                    update_location_items();
+                    update_player_inventory();
+                    return true;
+                }
+            }
+
+            // if nothing find show message
+            showMessage("There isn't anything like that here");
         }
         // END
 
