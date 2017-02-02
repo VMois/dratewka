@@ -22,14 +22,14 @@ var Locations = {
 
         class Location
         {
-            constructor(img_name, description, rgb_color, moves, things=[])
+            constructor(img_name, description, rgb_color, moves, items=[])
             {
                 this.img_name = path_to_img_folder + img_name;  // string
                 this.description = description;  // string
                 this.rgb_color = rgb_color;  // string
                 this.moves = moves;  // list
                 //element: 1 - north, 2 - east, 3 - south, 4 - west
-                this.things = things; // list
+                this.items = items; // list
             }
         };
 

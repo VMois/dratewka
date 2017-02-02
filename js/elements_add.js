@@ -14,7 +14,7 @@ var CreateElements = {
                       "</div>" +
                       "<div id='player-div'>" +
                       "<h1 id='location-moves'></h1>" +
-                      "<h1 id='location-things'>You see nothing</h1>" +
+                      "<h1 id='location-items'>You see nothing</h1>" +
                       "<h1 id='player-inventory-field'>You carrying nothing</h1>" +
                       "<div id='help-div'></div>";
 

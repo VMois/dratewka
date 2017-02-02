@@ -4,7 +4,7 @@ var Game = {
         var locationDescription = document.getElementById("location-description");
         var locationImg = document.getElementById("location-img");
         var locationMoves = document.getElementById("location-moves");
-        var locationThings = document.getElementById("location-things");
+        var locationItems = document.getElementById("location-items");
         var playerInventoryField = document.getElementById("player-inventory-field");
 
         var messageDiv = document.getElementById('message-div');
@@ -72,7 +72,7 @@ var Game = {
                 helpDiv.style.display = 'block';
 
                 locationMoves.style.display = 'none';
-                locationThings.style.display = 'none';
+                locationItems.style.display = 'none';
                 playerInventoryField.style.display = 'none';
                 is_halt = true;
                 document.onkeydown=function(e)
@@ -84,7 +84,7 @@ var Game = {
                         mainInput.style.display = 'block';
                         inputDivText.style.display = 'block';
                         locationMoves.style.display = 'block';
-                        locationThings.style.display = 'block';
+                        locationItems.style.display = 'block';
                         playerInventoryField.style.display = 'block';
                         is_halt = false;
 
@@ -132,28 +132,28 @@ var Game = {
                 locationMoves.innerHTML = "Sorry! You cannot escape!:)"
             }
 
-            // possible to take things
+            // possible items to take
             text = "";
 
-            for(i=0; i < currentLocation.things.length; i++)
+            for(i=0; i < currentLocation.items.length; i++)
             {
-                if(i == currentLocation.things.length - 1)
+                if(i == currentLocation.items.length - 1)
                 {
-                    text += currentLocation.things[i] + ".";
+                    text += currentLocation.items[i].variant_name + ".";
                 }
                 else
                 {
-                    text += currentLocation.things[i] + ", ";
+                    text += currentLocation.items[i].variant_name + ", ";
                 }
             }
 
             if(text != "")
             {
-                locationThings.innerHTML = "You see: " + text;
+                locationItems.innerHTML = "You see: " + text;
             }
             else
             {
-                locationThings.innerHTML = "You see nothing."
+                locationItems.innerHTML = "You see nothing."
             }
 
         }
