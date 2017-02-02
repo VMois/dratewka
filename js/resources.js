@@ -1,3 +1,19 @@
+var Items = {
+    init: function()
+    {
+        class Item
+        {
+            constructor(id, variant_name, flag, name)
+            {
+                this.id = id; // integer
+                this.variant_name = variant_name; // string, variant name e.g a KEY
+                this.flag = flag; // integer, 1 (can take) or 0 (can't take)
+                this.name = name; // string, name like KEY
+            }
+        };
+    }
+};
+
 var Locations = {
     init: function()
     {
@@ -17,7 +33,7 @@ var Locations = {
             }
         };
 
-        // test location
+        // test location (YX)
         location_47 = new Location("47.gif", "You are in a frontyard of your house",
                                    "rgb(255,190,99)", [true, false, true, true]);
         location_46 = new Location("46.gif", "You are on a town street",
