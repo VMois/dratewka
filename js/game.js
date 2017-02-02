@@ -149,7 +149,7 @@ var Game = {
 
             if(text != "")
             {
-                locationItems.innerHTML = "You see: " + text;
+                locationItems.innerHTML = "You see " + text;
             }
             else
             {

@@ -11,6 +11,13 @@ var Items = {
                 this.name = name; // string, name like KEY
             }
         };
+
+        // test items item_(id)
+        item_10 = new Item(10, 'a KEY', 1, 'KEY');
+        item_11 = new Item(11, 'an AXE', 1, 'AXE');
+        item_12 = new Item(12, 'STICKS', 1, 'STICKS');
+        item_13 = new Item(13, 'sheeplegs', 0, 'sheeplegs');
+        item_21 = new Item(21, 'a BAG', 1, 'BAG');
     }
 };
 
@@ -38,7 +45,14 @@ var Locations = {
                                    "rgb(255,190,99)", [true, false, true, true]);
         location_46 = new Location("46.gif", "You are on a town street",
                                    "rgb(255,190,99)", [true, true, false, true]);
+        location_45 = new Location("45.gif", "You are at a main crossroad",
+                                   "rgb(255,190,99)", [true, true, true, true]);
+        location_44 = new Location("44.gif", "You are by the water mill",
+                                   "rgb(255,190,99)", [false, true, false, false],
+                                  [item_21]);
         location_37 = new Location("37.gif", "You are in a cooper's house",
+                                   "rgb(255,188,102)", [false, false, true, false]);
+        location_36 = new Location("36.gif", "You are in a butcher's shop",
                                    "rgb(255,188,102)", [false, false, true, false]);
         location_57 = new Location("57.gif", "You are in a shoemaker's house",
                                    "rgb(254,194,97)", [true, false, false, false]);
