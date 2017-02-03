@@ -37,6 +37,9 @@ var Game = {
             TAKE: function() { take() },
             T: function() { take() },
 
+            DROP: function() { drop() },
+            D: function() { drop() },
+
             VOCABULARY: function() { vocabulary_help() },
             V: function() { vocabulary_help() },
 
@@ -342,6 +345,56 @@ var Game = {
 
             // if nothing find show message
             showMessage("There isn't anything like that here");
+        }
+        // END
+
+        // drop command function
+        // START
+        function drop()
+        {
+            var item_name = mainInput.value.split(' ')[1];
+
+            // check if player carrying something
+            if(playerInventory.length < 1)
+            {
+                showMessage("You are not carrying anything");
+                return false;
+            }
+
+            // check if item player wants to drop is in player inventory
+            if(playerInventory[0].name != item_name)
+            {
+                showMessage("You are not carrying it");
+                return false;
+            }
+
+            // check if player can store more items on this location
+            var items_count = 0;
+            for(i=0; i < currentLocation.items.length; i++)
+            {
+                if(currentLocation.items[i].flag == 1)
+                {
+                    items_count++;
+                }
+            }
+            if(items_count >= 3)
+            {
+                showMessage("You can't store any more here!");
+                return false;
+            }
+
+            // add item to location items
+            currentLocation.items.push(playerInventory[0]);
+
+            // delete item from player inventory
+            playerInventory.splice(0, 1);
+
+            // location items and player inventory
+            update_location_items();
+            update_player_inventory();
+
+            showMessage("You are about to drop " + item_name);
+
         }
         // END
 
