@@ -189,10 +189,10 @@ var Game = {
                 case 1:
                     if(currentLocation.moves[direction-1])
                     {
-                        currentX--;
-                        if(window["location_" + currentX + currentY] != undefined)
+                        if(window["location_" + (currentX - 1) + currentY] != undefined)
                         {
                             is_can = true;
+                            currentX--;
                             currentLocation = window["location_" + currentX + "" + currentY];
                             showMessage('You are going north...');
                         }
@@ -202,10 +202,10 @@ var Game = {
                 case 2:
                     if(currentLocation.moves[direction-1])
                     {
-                        currentY++;
-                        if(window["location_" + currentX + currentY] != undefined)
+                        if(window["location_" + currentX + (currentY + 1)] != undefined)
                         {
                             is_can = true;
+                            currentY++;
                             currentLocation = window["location_" + currentX + "" + currentY];
                             showMessage('You are going east...');
                         }
@@ -215,10 +215,10 @@ var Game = {
                 case 3:
                     if(currentLocation.moves[direction-1])
                     {
-                        currentX++;
-                        if(window["location_" + currentX + currentY] != undefined)
+                        if(window["location_" + (currentX + 1) + currentY] != undefined)
                         {
                             is_can = true;
+                            currentX++;
                             currentLocation = window["location_" + currentX + "" + currentY];
                             showMessage('You are going south...');
                         }
@@ -228,10 +228,10 @@ var Game = {
                 case 4:
                     if(currentLocation.moves[direction-1])
                     {
-                        currentY--;
-                        if(window["location_" + currentX + currentY] != undefined)
+                        if(window["location_" + currentX + (currentY - 1)] != undefined)
                         {
                             is_can = true;
+                            currentY--;
                             currentLocation = window["location_" + currentX + "" + currentY];
                             showMessage('You are going west...');
                         }
