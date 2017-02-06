@@ -40,6 +40,9 @@ var Game = {
             DROP: function() { drop() },
             D: function() { drop() },
 
+            USE: function() { use() },
+            U: function() { use() },
+
             VOCABULARY: function() { vocabulary_help() },
             V: function() { vocabulary_help() },
 
@@ -47,7 +50,17 @@ var Game = {
             G: function() { gossips() },
         };
 
-        function showMessage(message, type='message', time=1000)
+        // crafts each location has craft options
+        // each craft for location is list
+        // List: 1-ued item, 2 - item to get, 3 - message, 4 - extra actions
+        var crafts = {
+            loc_37: [
+                [15, 16, ["The cooper sold you a new barrel"],
+                function() { console.debug('[*] No extra action!')}]
+            ],
+        };
+
+        function showMessage(message, type='message', time=1000, many=false)
         {
             mainInput.style.display = 'none';
             inputDivText.style.display = 'none';
@@ -60,10 +73,13 @@ var Game = {
 
                 setTimeout(function()
                 {
-                    messageDiv.style.display = 'none';
-                    messageDiv.innerHTML = '';
-                    mainInput.style.display = 'block';
-                    inputDivText.style.display = 'block';
+                    if(!many)
+                    {
+                        messageDiv.style.display = 'none';
+                        messageDiv.innerHTML = '';
+                        mainInput.style.display = 'block';
+                        inputDivText.style.display = 'block';
+                    }
 
                     is_halt = false;
 
@@ -394,6 +410,116 @@ var Game = {
             update_player_inventory();
 
             showMessage("You are about to drop " + item_name);
+
+        }
+        // END
+
+        // use command function
+        // START
+        function use()
+        {
+            var item_name = mainInput.value.split(' ')[1];
+
+            // check if item exist in player inventory
+            if(playerInventory[0].name != item_name)
+            {
+                showMessage("You aren't carrying anything like that");
+                return false;
+            }
+
+            var craft_list = crafts['loc_' + currentX + currentY];
+            var used_item = undefined;
+            var get_item = undefined;
+            var current_craft = undefined;
+
+            // check if craft for this location exist
+            // if not show message
+            if(craft_list === undefined)
+            {
+                console.debug('[!] Nothing happened');
+                showMessage('Nothing happened');
+                return false;
+            }
+
+            // check for craft in crafts
+            for(i=0; i < craft_list.length; i++)
+            {
+                used_item = window['item_' + craft_list[i][0]];
+                if(used_item.name === item_name)
+                {
+                    console.debug('[*] Find item: ' + item_name);
+                    current_craft = craft_list[i];
+                    get_item = window['item_' + current_craft[1]];
+                    break;
+                }
+            }
+
+            console.debug(get_item);
+
+            // check if craft on this location available for used item
+            // if not show message
+            if(current_craft === undefined)
+            {
+                console.debug('[!] Nothing happened');
+                showMessage('Nothing happened');
+                return false;
+            }
+
+            // check get item flag
+            if(get_item.flag === 1)
+            {
+                // overwrite get item over used item
+                playerInventory[0] = get_item;
+            }
+            else
+            {
+                // delete item from player inventory
+                playerInventory[0] = undefined;
+
+                // add crafted item to location
+                currentLocation.items.push(get_item);
+            }
+
+            // show message
+            if(current_craft[2].length < 2)
+            {
+                // show single message
+                showMessage(current_craft[2], 'message', 2000);
+            }
+            else
+            {
+                // show all messages with timeout
+                var time = 0;
+                var last_i = current_craft[2].length - 1;
+                for(i=0; i < current_craft[2].length; i++)
+                {
+                    setTimeout(function(){
+                        console.debug('[*] Show message...');
+                        console.debug('Message text: ' + current_craft[2][i]);
+
+                        // check last element
+                        if(i == last_i)
+                        {
+                            showMessage(current_craft[2][i], 'message', 1000);
+                            return true;
+                        }
+
+                        showMessage(current_craft[2][i], 'message', 1000, true);
+                        // update i
+                        i++;
+                    }, time);
+
+                    // update timer
+                    time = time + 1800;
+                }
+            }
+
+            // do extra actions
+            current_craft[3]();
+
+            // update location and player inventory
+            update_location_items();
+            update_player_inventory();
 
         }
         // END
