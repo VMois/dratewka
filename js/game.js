@@ -17,6 +17,7 @@ var Game = {
         var currentX = 4;
         var currentY = 7;
 
+        // only one item can be
         var playerInventory = [];
 
         // element: 1 - north, 2 - east, 3 - south, 4 - west
@@ -259,10 +260,13 @@ var Game = {
             {
                 showMessage("You can't go that way!");
             }
+            else
+            {
+                // at the end, change location
+                update_location();
+            }
 
             console.debug(currentLocation);
-            // at the end, change location
-            update_location();
         }
 
         // START
