@@ -25,11 +25,22 @@ var Items = {
         item_19 = new Item(19, 'WOOL', 1, 'WOOL');
         item_20 = new Item(20, 'a sheepskin', 0, 'sheepskin');
         item_21 = new Item(21, 'a BAG', 1, 'BAG');
+        item_22 = new Item(22, 'a RAG', 1, 'RAG');
+        item_23 = new Item(23, 'a sheephead', 0, 'sheephead');
         item_24 = new Item(24, 'a SPADE', 1, 'SPADE');
+        item_25 = new Item(25, 'SULPHUR', 1, 'SULPHUR');
+        item_26 = new Item(26, 'a solid poison', 0, 'solid poison');
         item_27 = new Item(27, 'a BUCKET', 1, 'BUCKET');
+        item_28 = new Item(28, 'TAR', 1, 'TAR');
+        item_29 = new Item(29, 'a liqid poison', 0, 'liquid poison');
+        item_30 = new Item(30, 'a dead dragon', 0, 'dead dragon');
         item_31 = new Item(31, 'a STONE', 1, 'STONE');
         item_32 = new Item(32, 'a FISH', 1, 'FISH');
         item_33 = new Item(33, 'a KNIFE', 1, 'KNIFE');
+        item_34 = new Item(34, 'a DRAGONSKIN', 1, 'DRAGONSKIN');
+        item_35 = new Item(35, 'a dragonskin SHOES', 1, 'SHOES');
+        item_36 = new Item(36, 'a PRIZE', 1, 'PRIZE');
+        item_37 = new Item(37, 'a SHEEP', 1, 'SHEEP');
     }
 };
 
