@@ -64,28 +64,60 @@ var Locations = {
         };
 
         // test location (YX)
+        location_11 = new Location("11.gif", "You are inside a brimstone mine",
+                                   "rgb(235,211,64)", [false, true, false, false]);
+        location_12 = new Location("12.gif", "You are at the entrance to the mine",
+                                   "rgb(89,93,87)", [false, true, false, true]);
         location_13 = new Location("13.gif", "A hill",
                                    "rgb(117,237,243)", [false, true, true, true],
                                    [item_31]);
+        location_14 = new Location("14.gif", "Some bushes",
+                                   "rgb(202,230,51)", [false, true, false, true]);
         location_15 = new Location("15.gif", "An old deserted hut",
                                    "rgb(220,204,61)", [false, true, false, true],
                                    [item_27]);
+        location_16 = new Location("16.gif", "The edge of a forest",
+                                   "rgb(167,245,63)", [false, true, false, true]);
         location_17 = new Location("17.gif", "A dark forest",
                                    "rgb(140,253,99)", [false, false, true, true],
                                    [item_14]);
+        location_21 = new Location("21.gif", "A man nearby making tar",
+                                   "rgb(255,190,99)", [false, true, true, false]);
+        location_22 = new Location("22.gif", "A timber yard",
+                                   "rgb(255,190,99)", [false, true, true, true]);
         location_23 = new Location("23.gif", "You are by a roadside shrine",
                                    "rgb(167,245,63)", [true, true, true, true],
                                    [item_10]);
+        location_24 = new Location("24.gif", "You are by a small chapel",
+                                   "rgb(212,229,36)", [false, true, false, true]);
+        location_25 = new Location("25.gif", "You are on a road leading to a wood",
+                                   "rgb(167,245,63)", [false, true, true, true]);
+        location_26 = new Location("26.gif", "You are in a forest",
+                                   "rgb(167,245,63)", [false, true, false, true]);
         location_27 = new Location("27.gif", "You are in a deep forest",
                                    "rgb(140,253,99)", [true, false, false, true],
                                    [item_18]);
+        location_31 = new Location("31.gif", "You are by the Vistula River",
+                                   "rgb(122,232,252)", [true, true, false, false]);
         location_32 = new Location("32.gif", "You are by the Vistula River",
                                    "rgb(140,214,255)", [true, false, false, true],
                                    [item_32]);
+        location_33 = new Location("33.gif", "You are on a bridge over river",
+                                   "rgb(108,181,242)", [true, false, true, false]);
+        location_34 = new Location("34.gif", "You are by the old tavern",
+                                   "rgb(255,189,117)", [false, true, false, false]);
+        location_35 = new Location("35.gif", "You are at the town's end",
+                                   "rgb(255,190,99)", [true, false, true, true]);
         location_36 = new Location("36.gif", "You are in a butcher's shop",
                                    "rgb(255,188,102)", [false, false, true, false]);
         location_37 = new Location("37.gif", "You are in a cooper's house",
                                    "rgb(255,188,102)", [false, false, true, false]);
+        location_41 = new Location("41.gif", "You are in the Wawel Castle",
+                                   "rgb(255,176,141)", [false, true, false, false]);
+        location_42 = new Location("42.gif", "You are inside a dragon's cave",
+                                   "rgb(198,205,193)", [false, true, false, true]);
+        location_43 = new Location("43.gif", "A perfect place to set a trap",
+                                   "rgb(255,176,141)", [true, false, false, true]);
         location_44 = new Location("44.gif", "You are by the water mill",
                                    "rgb(255,190,99)", [false, true, false, false],
                                   [item_21]);
