@@ -127,14 +127,24 @@ var Locations = {
                                    "rgb(255,190,99)", [true, true, false, true]);
         location_47 = new Location("47.gif", "You are in a frontyard of your house",
                                    "rgb(255,190,99)", [true, false, true, true]);
+        location_54 = new Location("54.gif", "You are by a swift stream",
+                                   "rgb(108,181,242)", [false, true, false, false]);
         location_55 = new Location("55.gif", "You are on a street leading forest",
                                    "rgb(255,190,99)", [true, false, true, true],
                                    [item_33]);
+        location_56 = new Location("56.gif", "You are in a woodcutter's backyard",
+                                   "rgb(255,190,99)", [false, false, true, false]);
         location_57 = new Location("57.gif", "You are in a shoemaker's house",
                                    "rgb(254,194,97)", [true, false, false, false]);
         location_64 = new Location("64.gif", "You are in a bleak funeral house",
                                    "rgb(254,194,97)", [false, true, false, false],
                                    [item_24]);
+        location_65 = new Location("65.gif", "You are on a path leading to the wood",
+                                   "rgb(167,245,63)", [true, true, false, true]);
+        location_66 = new Location("66.gif", "You are at the edge of a forest",
+                                   "rgb(167,245,63)", [true, true, false, true]);
+        location_67 = new Location("67.gif", "You are in a deep forest",
+                                   "rgb(140,253,99)", [false, false, false, true]);
 
 
 
