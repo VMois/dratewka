@@ -157,6 +157,14 @@ var Game = {
             }
         }
 
+        // maps list position to dection name
+        var moves_map = {
+            0: 'NORTH',
+            1: 'EAST',
+            2: 'SOUTH',
+            3: 'WEST'
+        };
+
         function update_location()
         {
             // basic change
@@ -164,23 +172,28 @@ var Game = {
             locationImg.src = currentLocation.img_name;
             locationImg.style.backgroundColor = currentLocation.rgb_color;
 
-            // possible moves v1
+            // possible moves
             text = "";
-            if(currentLocation.moves[0] == true)
+            var can_go_list = [];
+
+            for(i=0; i < currentLocation.moves.length; i++)
             {
-                text += "NORTH, ";
+                if(currentLocation.moves[i])
+                {
+                    can_go_list.push(moves_map[i]);
+                }
             }
-            if(currentLocation.moves[1] == true)
+
+            for(i=0; i < can_go_list.length; i++)
             {
-                text += "EAST, ";
-            }
-            if(currentLocation.moves[2] == true)
-            {
-                text += "SOUTH, ";
-            }
-            if(currentLocation.moves[3] == true)
-            {
-                text += "WEST.";
+                if(i == can_go_list.length - 1)
+                {
+                    text += can_go_list[i] + ".";
+                }
+                else
+                {
+                    text += can_go_list[i] + ", ";
+                }
             }
 
             if(text != "")
