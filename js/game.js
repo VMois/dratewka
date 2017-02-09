@@ -438,7 +438,7 @@ var Game = {
             var item_name = mainInput.value.split(' ')[1];
 
             // check if item exist in player inventory
-            if(playerInventory[0].name != item_name)
+            if(playerInventory[0] == undefined || playerInventory[0].name != item_name)
             {
                 showMessage("You aren't carrying anything like that");
                 return false;
