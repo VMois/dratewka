@@ -532,7 +532,10 @@ var Game = {
             }
 
             // do extra actions
-            current_craft[3]();
+            if(current_craft[3] != undefined)
+            {
+                current_craft[3]();
+            }
 
             // update location and player inventory
             update_location_items();
