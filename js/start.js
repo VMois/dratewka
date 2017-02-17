@@ -5,7 +5,7 @@ var StartGame = {
             html = "<div id='main'>" +
                    "<img id='intro-img' src='gfx/main_theme.jpg' />" +
                    "<audio autoplay>" +
-                   "<source src='songs/krakow_signal.wav' type='audio/wav'>" +
+                   "<source src='songs/krakow_signal.mp3' type='audio/mp3'>" +
                    "</audio>" +
                    "</div>";
             body.innerHTML = html;
