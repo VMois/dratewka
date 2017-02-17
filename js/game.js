@@ -13,6 +13,11 @@ var Game = {
         var mainInput = document.getElementById('main-input');
         is_halt = false;
 
+        var compassWest = document.getElementById('compass-west');
+        var compassEast = document.getElementById('compass-east');
+        var compassNorth = document.getElementById('compass-north');
+        var compassSouth = document.getElementById('compass-south');
+
         var currentLocation = location_47;
         var currentX = 4;
         var currentY = 7;
@@ -165,12 +170,25 @@ var Game = {
             3: 'WEST'
         };
 
+        var compass_map =
+        {
+            0: function() {compassNorth.style.visibility = 'hidden';},
+            1: function() {compassEast.style.visibility = 'hidden';},
+            2: function() {compassSouth.style.visibility = 'hidden';},
+            3: function() {compassWest.style.visibility = 'hidden';}
+        };
+
         function update_location()
         {
             // basic change
             locationDescription.innerHTML = currentLocation.description;
             locationImg.src = currentLocation.img_name;
             locationImg.style.backgroundColor = currentLocation.rgb_color;
+
+            compassWest.style.visibility = 'visible';
+            compassEast.style.visibility = 'visible';
+            compassNorth.style.visibility = 'visible';
+            compassSouth.style.visibility = 'visible';
 
             // possible moves
             text = "";
@@ -181,6 +199,7 @@ var Game = {
                 if(currentLocation.moves[i])
                 {
                     can_go_list.push(moves_map[i]);
+                    compass_map[i]();
                 }
             }
 

@@ -30,7 +30,7 @@ body
 
 #location-img
 {
-    width: 512px;
+    width: 384px;
     margin-top: .5em;
     margin-bottom: .5em;
 
@@ -50,46 +50,112 @@ body
 
 #main
 {
-    width: 768px;
-    margin: 10vh auto;
+    width: 896px;
+    margin: 4.5vh auto;
+
+    border: .1em solid #35383d;
     background-color: #35383d;
-    border: 0.1em solid #35383d;
 }
 
 #input-div
 {
-    margin-top: 1em;
     width: 100%;
     height: 2em;
+    margin-top: 1em;
 }
 
 #input-div-text
 {
     float: left;
+
     width: 26%;
 }
 
-#message-div, #help-div
+#message-div,
+#help-div
 {
-    width: 100%;
-    height: 100%;
-    display: none;
+    font-family: PressStart2P;
+
     top: 0;
     left: 0;
-    font-family: PressStart2P;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
 }
 
-#location-moves, #location-items, #player-inventory-field
+#location-moves,
+#location-items,
+#player-inventory-field
 {
-    margin-top: 0.3em;
+    margin-top: .3em;
 }
 
 #intro-img
 {
     position: relative;
     z-index: 10;
+
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+
     transition: opacity 1s;
+
+    opacity: .8;
+}
+
+.compass_div
+{
+    float: right;
+
+    width: 384px;
+    max-width: 384px;
+    max-height: 200px;
+    margin-top: 2em;
+}
+
+#compass
+{
+    z-index: 10;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+.compass_close
+{
+    position: relative;
+    z-index: 100;
+
+    width: 25px;
+    height: 25px;
+
+    background-color: #35383d;
+}
+
+#compass-west
+{
+    bottom: 135px;
+    left: 20px;
+}
+
+#compass-east
+{
+    bottom: 157px;
+    left: 342px;
+}
+
+#compass-north
+{
+    bottom: 235px;
+    left: 170px;
+}
+
+#compass-south
+{
+    bottom: 100px;
+    left: 177px;
 }

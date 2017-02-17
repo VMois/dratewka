@@ -9,7 +9,14 @@ var CreatePlayerInterface = {
 
         html = "<div id='location-div'>" +
                "<h1 id='location-description'></h1>" +
-               "<img id='location-img'></img>" +
+               "<img id='location-img' />" +
+               "<div class='compass_div'>" +
+               "<img id='compass' src='gfx/compass.png' />" +
+               "<div id='compass-west' class='compass_close'></div>" +
+               "<div id='compass-east' class='compass_close'></div>" +
+               "<div id='compass-north' class='compass_close'></div>" +
+               "<div id='compass-south' class='compass_close'></div>" +
+               "</div>" +
                "</div>" +
                "<div id='player-div'>" +
                "<h1 id='location-moves'></h1>" +
