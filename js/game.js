@@ -22,6 +22,10 @@ var Game = {
         var currentX = 4;
         var currentY = 7;
 
+        // game variables
+        var is_dragon_dead = false;
+        var required_sheep_parts = 6;
+
         // only one item can be
         var playerInventory = [];
 
@@ -56,13 +60,100 @@ var Game = {
             G: function() { gossips() },
         };
 
+        // addtion function to get poisoned sheep | maybe need refactor in future
+        function check_or_get_sheep()
+        {
+            if(required_sheep_parts <= 0)
+            {
+                setTimeout(function()
+                {
+                    showMessage("Your fake sheep is full of poison and ready to be eaten by the dragon");
+                }, 2000);
+                playerInventory[0] = item_37;
+                update_player_inventory();
+            }
+            else
+            {
+                required_sheep_parts--;
+                console.log("[*] Need to get: " + required_sheep_parts + " sheep part(s)");
+            }
+        }
+
         // crafts each location has craft options
         // each craft for location is list
         // List: 1-ued item, 2 - item to get, 3 - message, 4 - extra actions
         var crafts = {
+            loc_11: [
+                [24, 25, ["You are digging...", "and digging...", "That's enough sulphur for you"]]
+            ],
+            loc_21: [
+                [27, 28, ["You got a bucket full of tar"]]
+            ],
+            loc_34: [
+                [14, 15, ["The tavern owner paid you money"]]
+            ],
+            loc_36: [
+                [18, 19, ["The butcher gave you wool"]]
+            ],
             loc_37: [
-                [15, 16, ["The cooper sold you a new barrel"],
-                function() { console.debug('[*] No extra action!')}]
+                [15, 16, ["The cooper sold you a new barrel"]]
+            ],
+            loc_41: [
+                [35, 36, ["The King is impressed by your shoes"]]
+            ],
+            loc_43: [
+                [12, 13, ["You prepared legs for your fake sheep"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [16, 17, ["You made a nice sheeptrunk"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [19, 20, ["You prepared skin for your fake sheep"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [22, 23, ["You made a fake sheephead"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [25, 26, ["You prepared a solid poison"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [28, 29, ["You prepared a liquid poison"], function()
+                {
+                    check_or_get_sheep();
+                }],
+                [37, 30, ["The dragon noticed your gift...", "The dragon ate your sheep and died!"], function()
+                {
+                    setTimeout(function(){
+                        is_dragon_dead = true;
+                        location_43.img_name = 'gfx/dead_dragon.bmp';
+                        update_location();
+                    }, 3000);
+                }],
+                [33, 34, ["You cut a piece of dragon's skin"], undefined, function(){
+                    if(is_dragon_dead)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }]
+            ],
+            loc_56: [
+                [10, 11, ["You opened a tool shed and took an axe"]]
+            ],
+            loc_57: [
+                [21, 22, ["You used your tools to make a rag"]],
+                [34, 35, ["You used your tools to make shoes"]]
+            ],
+            loc_67: [
+                [11, 12, ["You cut sticks for sheeplegs"]]
             ],
         };
 
