@@ -592,6 +592,12 @@ var Game = {
                 return false;
             }
 
+            if(current_craft[4] != undefined && !current_craft[4]())
+            {
+                showMessage('Nothing happened');
+                return false;
+            }
+
             // check get item flag
             if(get_item.flag === 1)
             {
