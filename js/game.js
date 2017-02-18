@@ -368,7 +368,17 @@ var Game = {
                 case 4:
                     if(currentLocation.moves[direction-1])
                     {
-                        if(window["location_" + currentX + (currentY - 1)] != undefined)
+                        if(currentX == 4 && (currentY - 1) == 1 && !is_dragon_dead)
+                        {
+                            // it trick and not good (no logic), but for now
+                            is_can = true;
+
+                            showMessage("You can't go that way...", 'message', 1000, true);
+                            setTimeout(function(){
+                                showMessage("The dragon sleeps in a cave!");
+                            }, 1000);
+                        }
+                        else if(window["location_" + currentX + (currentY - 1)] != undefined)
                         {
                             is_can = true;
                             currentY--;
