@@ -526,27 +526,28 @@ var Game = {
             {
                 // show all messages with timeout
                 var time = 0;
-                var last_i = current_craft[2].length - 1;
+                var last_k = current_craft[2].length - 1;
+                var k = 0;
                 for(i=0; i < current_craft[2].length; i++)
                 {
                     setTimeout(function(){
                         console.debug('[*] Show message...');
-                        console.debug('Message text: ' + current_craft[2][i]);
+                        console.debug('Message text: ' + current_craft[2][k]);
 
                         // check last element
-                        if(i == last_i)
+                        if(k == last_k)
                         {
-                            showMessage(current_craft[2][i], 'message', 1000);
+                            showMessage(current_craft[2][k], 'message', 1000);
                             return true;
                         }
 
-                        showMessage(current_craft[2][i], 'message', 1000, true);
-                        // update i
-                        i++;
+                        showMessage(current_craft[2][k], 'message', 1000, true);
+                        // update k
+                        k++;
                     }, time);
 
                     // update timer
-                    time = time + 1800;
+                    time = time + 2000;
                 }
             }
 
@@ -557,8 +558,10 @@ var Game = {
             }
 
             // update location and player inventory
-            update_location_items();
-            update_player_inventory();
+            setTimeout(function(){
+                update_location_items();
+                update_player_inventory();
+            }, 2000);
 
         }
         // END
