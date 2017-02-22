@@ -99,7 +99,10 @@ var Game = {
                 [15, 16, ["The cooper sold you a new barrel"]]
             ],
             loc_41: [
-                [35, 36, ["The King is impressed by your shoes"]]
+                [35, 36, ["The King is impressed by your shoes"], function()
+                {
+                    alert("You win!");
+                }]
             ],
             loc_43: [
                 [12, 13, ["You prepared legs for your fake sheep"], function()
