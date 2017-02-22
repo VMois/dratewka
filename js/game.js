@@ -135,14 +135,7 @@ var Game = {
                     }, 3000);
                 }],
                 [33, 34, ["You cut a piece of dragon's skin"], undefined, function(){
-                    if(is_dragon_dead)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return is_dragon_dead;
                 }]
             ],
             loc_56: [
