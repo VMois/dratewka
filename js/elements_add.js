@@ -27,7 +27,8 @@ var CreatePlayerInterface = {
         html = html + "<div id='input-div'>" +
                       "<div id='message-div'></div>" +
                       "<h1 id='input-div-text'>What now?</h1>" +
-                      "<input id='main-input' type='text' autofocus>" +
+                      "<span id='main-input'></span>" +
+                      "<div id='cursor'></div>" +
                       "</div>" +
                       "</div>";
 

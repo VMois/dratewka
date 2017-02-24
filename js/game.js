@@ -409,8 +409,8 @@ var Game = {
             else
             {
                 commands[command]();
-                mainInput.value = '';
             }
+            mainInput.innerHTML = '';
         }
 
         // need for access processor function from UI.js

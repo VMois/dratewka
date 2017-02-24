@@ -31,7 +31,7 @@ var UI = {
                 if(keyName == "Enter")
                 {
                     // get first word for command
-                    var command = mainInput.value.split(" ")[0];
+                    var command = mainInput.innerHTML.split(" ")[0];
 
                     // execute command
                     command_processor(command);
@@ -42,18 +42,18 @@ var UI = {
                 {
                     if(is_upper_case)
                     {
-                        mainInput.value += event.key.toUpperCase();
+                        mainInput.innerHTML += event.key.toUpperCase();
                     }
                     else
                     {
-                        mainInput.value += event.key.toLowerCase();
+                        mainInput.innerHTML += event.key.toLowerCase();
                     }
                 }
 
                 // backspace
                 if(event.keyCode == 8)
                 {
-                    mainInput.value = mainInput.value.slice(0, mainInput.value.length-1);
+                    mainInput.innerHTML = mainInput.innerHTML.slice(0, mainInput.innerHTML.length-1);
                 }
 
                 // caps lock and shift key press check
