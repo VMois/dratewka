@@ -48,13 +48,28 @@ var UI = {
                 // backspace
                 if(event.keyCode == 8)
                 {
+                    // it is a trick, i hate tricks but it is fastest way :)
+                    if(mainInput.innerHTML[mainInput.innerHTML.length - 1] == ";")
+                    {
+                        mainInput.innerHTML = mainInput.innerHTML.slice(0, mainInput.innerHTML.length - 6);
+                    }
+                    else
+                    {
                     mainInput.innerHTML = mainInput.innerHTML.slice(0, mainInput.innerHTML.length-1);
+                    }
                 }
 
                 // caps lock and shift key press check
                 if(event.keyCode == 20 || event.keyCode == 16)
                 {
                     is_upper_case = !is_upper_case;
+                }
+
+                // space key
+                if(event.keyCode == 32)
+                {
+                    console.log('space');
+                    mainInput.innerHTML += "&nbsp;";
                 }
             }
         }, false);
