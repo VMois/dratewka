@@ -11,6 +11,7 @@ var Game = {
         var helpDiv = document.getElementById('help-div');
         var inputDivText = document.getElementById('input-div-text');
         var mainInput = document.getElementById('main-input');
+        var cursor = document.getElementById('cursor');
         is_halt = false;
 
         var compassWest = document.getElementById('compass-west');
@@ -157,6 +158,7 @@ var Game = {
         {
             mainInput.style.display = 'none';
             inputDivText.style.display = 'none';
+            cursor.style.display = 'none';
             if( type == 'message' )
             {
                 messageDiv.innerHTML = message;
@@ -172,6 +174,7 @@ var Game = {
                         messageDiv.innerHTML = '';
                         mainInput.style.display = 'block';
                         inputDivText.style.display = 'block';
+                        cursor.style.display = 'block';
                     }
 
                     is_halt = false;
@@ -195,6 +198,7 @@ var Game = {
                         helpDiv.innerHTML = '';
                         mainInput.style.display = 'block';
                         inputDivText.style.display = 'block';
+                        cursor.style.display = 'block';
                         locationMoves.style.display = 'block';
                         locationItems.style.display = 'block';
                         playerInventoryField.style.display = 'block';
