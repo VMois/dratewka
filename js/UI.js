@@ -9,12 +9,7 @@ var UI = {
                 mainInput.focus();
             });
         });
-
-
-        // always upper case letter in main-input field
-        mainInput.addEventListener("input", function(){
-            mainInput.value = mainInput.value.toUpperCase();
-        })
+        
 
         document.addEventListener('keyup', (event) => {
             if(event.keyCode == 16)
