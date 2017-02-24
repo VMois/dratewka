@@ -69,10 +69,19 @@ var Game = {
             {
                 setTimeout(function()
                 {
-                    showMessage("Your fake sheep is full of poison and ready to be eaten by the dragon");
+                    for(i=0; i < location_43.items.length; i++)
+                    {
+                        if(location_43.items[i].flag == 0)
+                        {
+                            location_43.items.splice(i, 1);
+                            i--;
+                        }
+                    }
+                    showMessage("Your fake sheep is full of poison and ready to be eaten by the dragon", "message", 3000);
+                    playerInventory[0] = item_37;
+                    update_player_inventory();
+                    update_location_items();
                 }, 2000);
-                playerInventory[0] = item_37;
-                update_player_inventory();
             }
             else
             {
