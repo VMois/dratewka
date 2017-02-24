@@ -9,7 +9,7 @@ var UI = {
                 mainInput.focus();
             });
         });
-        
+
 
         document.addEventListener('keyup', (event) => {
             if(event.keyCode == 16)
@@ -25,11 +25,12 @@ var UI = {
                 const keyName = event.key;
                 if(keyName == "Enter")
                 {
-                    // get first word for command
-                    var command = mainInput.innerHTML.split(" ")[0];
+                    // element of global command variable
+                    // first element - command (TAKE, DROP, USE or move)
+                    // second element - item name
+                    command = mainInput.innerHTML.split("&nbsp;");
 
-                    // execute command
-                    command_processor(command);
+                    command_processor(command[0]);
                 }
 
                 // accept only chracters (according to Unicode)

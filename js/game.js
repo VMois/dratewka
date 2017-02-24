@@ -448,7 +448,7 @@ var Game = {
         // START
         function take()
         {
-            var item_name = mainInput.value.split(' ')[1];
+            var item_name = command[1];
 
             // check if player carrying something
             if(playerInventory.length > 0)
@@ -501,7 +501,7 @@ var Game = {
         // START
         function drop()
         {
-            var item_name = mainInput.value.split(' ')[1];
+            var item_name = command[1];
 
             // check if player carrying something
             if(playerInventory.length < 1)
@@ -551,7 +551,7 @@ var Game = {
         // START
         function use()
         {
-            var item_name = mainInput.value.split(' ')[1];
+            var item_name = command[1];
 
             // check if item exist in player inventory
             if(playerInventory[0] == undefined || playerInventory[0].name != item_name)
