@@ -643,7 +643,12 @@ var Game = {
             if(current_craft[2].length < 2)
             {
                 // show single message
-                showMessage(current_craft[2], 'message', 2000);
+                showMessage(current_craft[2], 'message', 2500);
+
+                setTimeout(function(){
+                    update_location_items();
+                    update_player_inventory();
+                }, 2500);
             }
             else
             {
@@ -661,6 +666,8 @@ var Game = {
                         if(k == last_k)
                         {
                             showMessage(current_craft[2][k], 'message', 1000);
+                            update_location_items();
+                            update_player_inventory();
                             return true;
                         }
 
@@ -670,7 +677,7 @@ var Game = {
                     }, time);
 
                     // update timer
-                    time = time + 2000;
+                    time = time + 2500;
                 }
             }
 
@@ -679,13 +686,6 @@ var Game = {
             {
                 current_craft[3]();
             }
-
-            // update location and player inventory
-            setTimeout(function(){
-                update_location_items();
-                update_player_inventory();
-            }, 2000);
-
         }
         // END
 
