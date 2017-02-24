@@ -28,7 +28,7 @@ var Game = {
         var required_sheep_parts = 6;
 
         // only one item can be
-        var playerInventory = [];
+        var playerInventory = [undefined];
 
         // element: 1 - north, 2 - east, 3 - south, 4 - west
         // commands dictionary
@@ -462,7 +462,7 @@ var Game = {
             var item_name = inputText[1];
 
             // check if player carrying something
-            if(playerInventory.length > 0)
+            if(playerInventory[0] != undefined)
             {
                 showMessage("You are carrying something");
                 return false;
@@ -515,7 +515,7 @@ var Game = {
             var item_name = inputText[1];
 
             // check if player carrying something
-            if(playerInventory.length < 1)
+            if(playerInventory[0] == undefined)
             {
                 showMessage("You are not carrying anything");
                 return false;
@@ -547,7 +547,7 @@ var Game = {
             currentLocation.items.push(playerInventory[0]);
 
             // delete item from player inventory
-            playerInventory.splice(0, 1);
+            playerInventory[0] = undefined;
 
             // location items and player inventory
             update_location_items();
