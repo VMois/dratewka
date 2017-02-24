@@ -64,6 +64,7 @@ var Game = {
         // addtion function to get poisoned sheep | maybe need refactor in future
         function check_or_get_sheep()
         {
+            required_sheep_parts--;
             if(required_sheep_parts <= 0)
             {
                 setTimeout(function()
@@ -75,7 +76,6 @@ var Game = {
             }
             else
             {
-                required_sheep_parts--;
                 console.log("[*] Need to get: " + required_sheep_parts + " sheep part(s)");
             }
         }
