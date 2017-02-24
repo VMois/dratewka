@@ -28,9 +28,9 @@ var UI = {
                     // element of global command variable
                     // first element - command (TAKE, DROP, USE or move)
                     // second element - item name
-                    command = mainInput.innerHTML.split("&nbsp;");
+                    inputText = mainInput.innerHTML.split("&nbsp;");
 
-                    command_processor(command[0]);
+                    command_processor(inputText[0]);
                 }
 
                 // accept only chracters (according to Unicode)
