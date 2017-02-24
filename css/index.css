@@ -1,7 +1,7 @@
 
 *
 {
-    font-size: 21px;
+    font-size: 20px;
 
     -webkit-box-sizing: border box;
        -moz-box-sizing: border-box;
@@ -48,7 +48,7 @@ body
 
 #main
 {
-    width: 896px;
+    width: 1024px;
     margin: 4.5vh auto;
 
     border: .1em solid #35383d;
@@ -58,7 +58,7 @@ body
 #input-div
 {
     width: 100%;
-    height: 21px;
+    height: 20px;
     margin-top: 3.5em;
     margin-bottom: 1em;
 }
@@ -110,7 +110,8 @@ body
     width: 384px;
     max-width: 384px;
     max-height: 200px;
-    margin-top: 2em;
+    margin-top: 50px;
+    margin-right: 65px;
 }
 
 #compass
