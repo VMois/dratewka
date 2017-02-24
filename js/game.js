@@ -396,7 +396,10 @@ var Game = {
             else
             {
                 // at the end, change location
-                update_location();
+                setTimeout(function()
+                {
+                    update_location();
+                }, 1000);
             }
 
             console.debug(currentLocation);
