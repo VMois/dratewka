@@ -27,22 +27,21 @@ var StartGame = {
             setTimeout(function()
             {
                 introImg.style.opacity = '0.4';
-            }, 22500);
+            }, 32500);
 
             // timeout to change to description_2 img
             setTimeout(function(){
                 introImg.style.opacity = '0.8';
                 introImg.src = "gfx/description_2.jpg";
-            }, 23000);
+            }, 33000);
 
             setTimeout(function(){
                 introImg.style.opacity = '0.4';
-            }, 32500);
+            }, 39500);
 
             setTimeout(function(){
                 body.innerHTML = "";
-            }, 33000);
-
+            }, 40000);
             // timeout to load modules, interface and start game
             setTimeout(function()
             {
@@ -53,6 +52,6 @@ var StartGame = {
                 CreatePlayerInterface.init();
                 Game.init();
                 UI.init();
-            }, 34000);
+            }, 40500);
         }
 };
