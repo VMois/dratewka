@@ -12,6 +12,7 @@ var Game = {
         var inputDivText = document.getElementById('input-div-text');
         var mainInput = document.getElementById('main-input');
         var cursor = document.getElementById('cursor');
+        var main = document.getElementById("main");
         is_halt = false;
 
         var compassWest = document.getElementById('compass-west');
@@ -60,6 +61,15 @@ var Game = {
             GOSSIPS: function() { gossips() },
             G: function() { gossips() },
         };
+
+        // game end function
+        function end_game()
+        {
+            main.innerHTML = "<img id='intro-img' style='height: 200px; margin-top: 125px;' src='gfx/win.png'></img>" +
+                             "<audio autoplay>" +
+                             "<source src='songs/applause.mp3' type='audio/mp3'>" +
+                             "</audio>";
+        }
 
         // addtion function to get poisoned sheep | maybe need refactor in future
         function check_or_get_sheep()
@@ -578,6 +588,15 @@ var Game = {
             {
                 showMessage("You aren't carrying anything like that");
                 return false;
+            }
+
+            // add exception for PRIZE
+            // add game end
+            if(item_name == 'PRIZE')
+            {
+                console.log("[*] YOU WIN!");
+                end_game();
+                return true;
             }
 
             var craft_list = crafts['loc_' + currentX + currentY];
