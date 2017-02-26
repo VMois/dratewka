@@ -49,6 +49,7 @@ body
 #main
 {
     width: 1024px;
+    height: 525px;
     margin: 4.5vh auto;
 
     border: .1em solid #35383d;
