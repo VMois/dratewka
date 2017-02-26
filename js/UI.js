@@ -3,13 +3,6 @@ var UI = {
     {
         var is_upper_case = true;
         var mainInput = document.getElementById("main-input");
-        // always foxus on main-input field
-        mainInput.addEventListener("blur", function(){
-            setInterval(function(){
-                mainInput.focus();
-            });
-        });
-
 
         document.addEventListener('keyup', (event) => {
             if(event.keyCode == 16)
