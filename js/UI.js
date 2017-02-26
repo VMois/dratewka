@@ -69,7 +69,6 @@ var UI = {
                 // space key
                 if(event.keyCode == 32)
                 {
-                    console.log('space');
                     mainInput.innerHTML += "&nbsp;";
                 }
             }
