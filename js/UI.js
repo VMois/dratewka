@@ -29,6 +29,10 @@ var UI = {
                 // accept only chracters (according to Unicode)
                 if(event.keyCode >= 65 && event.keyCode <= 90)
                 {
+                    if(mainInput.innerHTML.length > 30)
+                    {
+                        return false;
+                    }
                     if(is_upper_case)
                     {
                         mainInput.innerHTML += event.key.toUpperCase();
